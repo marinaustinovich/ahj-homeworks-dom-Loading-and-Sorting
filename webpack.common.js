@@ -62,7 +62,7 @@ module.exports = {
       template: './src/index.html', // Данный html будет использован как шаблон
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css', // Формат имени файла
+      filename: '[name].css', // Формат имени файла
     }),
     new CleanWebpackPlugin(),
   ],
