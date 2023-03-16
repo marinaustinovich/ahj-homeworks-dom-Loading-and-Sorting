@@ -1,0 +1,60 @@
+body {
+  background: #eee;
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+.table-container {
+  padding:20px;
+  background-color: rgb(150, 147, 143);
+}
+
+.table_sort {
+  margin: auto;
+  width:70%;
+  background-color: rgb(240, 232, 232);
+}
+
+th {
+  height: 70px;
+  padding: 5px;
+}
+
+td {
+  text-align: left;
+  padding: 5px;
+}
+
+tbody tr:hover {
+  background-color: coral;
+}
+
+.table-tile {
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+th.sorted[data-to="max"],
+th.sorted[data-to="min"] {
+    position: relative;
+}
+
+th.sorted[data-to="max"]::after,
+th.sorted[data-to="min"]::after {
+    right: 8px;
+    position: absolute;
+}
+
+th.sorted[data-to="min"]::after {
+  content: '\2193';
+  padding-right: 5px;
+}
+
+th.sorted[data-to="max"]::after {
+  content: '\2191';
+  padding-right: 5px;
+}

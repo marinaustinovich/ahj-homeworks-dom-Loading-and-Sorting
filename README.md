@@ -1,4 +1,4 @@
-
+[![Build status](https://ci.appveyor.com/api/projects/status/0r0n3a4raffexx8u/branch/main?svg=true)](https://ci.appveyor.com/project/marinaustinovich/ahj-homeworks-dom-loading-and-sorting/branch/main)
 
 ### Loading and Sorting, data-attributes
 
