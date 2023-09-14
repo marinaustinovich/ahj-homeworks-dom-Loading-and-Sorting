@@ -10,45 +10,17 @@ function sortAuthomatic(type, to) {
 
   thSort.classList.add('sorted');
 
-  // compare(a, b) сравнивает две строки, нужен для сортировки
-  let compare;
+  const orderMultiplier = to === 'max' ? 1 : -1;
 
-  if (to === 'max') {
-    switch (type) {
-      case 'data-id':
-      case 'data-year':
-      case 'data-imdb':
-        compare = function (a, b) {
-          return Number(a.getAttribute(type)) - Number(b.getAttribute(type));
-        };
-        break;
-      case 'data-title':
-        compare = function (a, b) {
-          return a.getAttribute(type) > b.getAttribute(type) ? 1 : -1;
-        };
-        break;
-      default: break;
-    }
+  const comparators = {
+    'data-id': (a, b) => Number(a.getAttribute(type)) - Number(b.getAttribute(type)),
+    'data-title': (a, b) => a.getAttribute(type).localeCompare(b.getAttribute(type)),
+    'data-year': (a, b) => Number(a.getAttribute(type)) - Number(b.getAttribute(type)),
+    'data-imdb': (a, b) => Number(a.getAttribute(type)) - Number(b.getAttribute(type)),
+  };
 
-    thSort.setAttribute('data-to', 'max');
-  } else {
-    switch (type) {
-      case 'data-id':
-      case 'data-year':
-      case 'data-imdb':
-        compare = function (a, b) {
-          return Number(b.getAttribute(type)) - Number(a.getAttribute(type));
-        };
-        break;
-      case 'data-title':
-        compare = function (a, b) {
-          return a.getAttribute(type) > b.getAttribute(type) ? -1 : 1;
-        };
-        break;
-      default: break;
-    }
-    thSort.setAttribute('data-to', 'min');
-  }
+  const compare = (a, b) => orderMultiplier * comparators[type](a, b);
+  thSort.setAttribute('data-to', to);
 
   // сортировка
   rowsArray.sort(compare);
@@ -65,9 +37,8 @@ export default function sortTable() {
     }
 
     sortAuthomatic(dataAttributes[i], 'max');
-
     setTimeout(() => {
-      sortAuthomatic(dataAttributes[i]);
+      sortAuthomatic(dataAttributes[i], 'min');
       i += 1;
     }, 2000);
   }, 4000);

@@ -1,8 +1,8 @@
+### Loading and Sorting, data-attributes
+
 [![Build status](https://ci.appveyor.com/api/projects/status/0r0n3a4raffexx8u/branch/main?svg=true)](https://ci.appveyor.com/project/marinaustinovich/ahj-homeworks-dom-loading-and-sorting/branch/main)
 
 deployment: https://marinaustinovich.github.io/ahj-homeworks-dom-Loading-and-Sorting/
-### Loading and Sorting, data-attributes
-
 #### Легенда
 
 С сервера приходят данные с фиксированным набором полей (см. описание ниже). Необходимо сгенерировать по этим данным HTML-таблицу и вставить её в DOM Tree. Функцией `setInterval`  необходимо каждые 2 секунды менять порядок сортировки:
@@ -69,11 +69,11 @@ id, оценки и года выпуска сортируются как чис
 
 Внешний вид без сортировки:
 
-![](./pic/loading.png)
+![](./src/img/loading.png)
 
 При сортировке по id (по возрастанию):
 
-![](./pic/loading-2.png)
+![](./src/img/loading-2.png)
 
 Всё собирается через Webpack и выкладывается на GitHub Pages через CI.
 
